@@ -1,0 +1,27 @@
+/**
+ * Created by lenovo on 2017/2/6.
+ */
+module.exports={
+	entry:'./index.js',
+	output:{
+		path:'/dist/',
+		filename:'index.js'
+	},
+	devtool:"source-map",
+	module:{
+		loaders:[
+			{
+				test:/\.css$/,
+				loader:'style-loader!css-loader'
+			},
+			{
+				test:/\.jsx?$/,
+				loader:'babel-loader?presets[]=es2015&presets[]=react',
+				exclude:'node_modules'
+			}
+		]
+	},
+	resolve:{
+		extensions:['.css','.js','.jsx']
+	}
+}
